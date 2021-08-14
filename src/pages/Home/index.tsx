@@ -31,12 +31,11 @@ export function Home() {
   const [typeRepository, setTypeRepository] = useState("");
 
   /**
-   *  Chamada endpoint de acordo o value 
+   *  Chamada endpoint de acordo o value
    * @function handleGetRepository
    * @param {*} value repos ou starred
-   * @param {*} username repos ou starred
-   Endpoint repos: https://api.github.com/users/NOME_USUARIO/@value
-   Endpoint starred: https://api.github.com/users/NOME_USUARIO/@value
+   * @param {*} username  login do usuário
+   * Endpoint: https://api.github.com/users/username/@value (repos) ou (starred)
    */
   async function handleGetRepository(value: string) {
     if (value) {
@@ -50,9 +49,10 @@ export function Home() {
   /**
    *
    * @function handleSubmit
+   * * @param {*} event bloqueando evento padrão do formulário.
    *  Fazendo a primeira chamda api onde,
-   *  encontramos o usuário digitado  @username
-   *  Endpoint user: https://api.github.com/users/ @username
+   *  encontramos o usuário digitado @username
+   *  Endpoint user: https://api.github.com/users/@username
    */
   const handleSubmit = useCallback(
     async (event: FormEvent) => {
