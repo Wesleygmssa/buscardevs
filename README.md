@@ -39,37 +39,6 @@ yarn start
 
 - Criar um aplicativo OAuth: https://docs.github.com/pt/developers/apps/building-oauth-apps/creating-an-oauth-app
 
-### Configuração de autenticação com GitHub
-
-```bash
-import NextAuth from "next-auth";
-import Providers from "next-auth/providers";
-
-export default NextAuth({
-  // Configure one or more authentication providers
-  providers: [
-    Providers.GitHub({
-      clientId: "a07771680fab6455939d",
-      clientSecret: "318529d04addccf89edd0b018d65ddf03076b898",
-      scope: "read:user,repo",
-    }),
-
-    // ...add more providers here
-  ],
-
-  // // A database is optional, but required to persist accounts in a database
-  // database: process.env.DATABASE_URL,
-});
-
-```
-
-### Modo de utilização
-
-```bash
-
-import { signIn, useSession, signOut } from "next-auth/client";
-const [session] = useSession();
-
 ```
 
 - Abra [http://localhost:3000](http://localhost:3000) para vizualizar em seu navegador
@@ -86,3 +55,4 @@ Depois que o merge da sua pull request for feito, você pode deletar a sua branc
 ---
 
 Make with ♥ by Wesley Guerra :wave:
+```
