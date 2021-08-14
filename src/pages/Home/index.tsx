@@ -128,11 +128,11 @@ export function Home() {
                 Mais visitados
               </LinkScroll>
             </div>
-
+            <span id="table" />
             <div>
               {typeRepository === "repos" && <h2>Repositórios</h2>}
               {typeRepository === "starred" && <h2>Mais Visitados</h2>}
-              <span id="table" />
+
               {repositories.map((repository) => (
                 <>
                   <a
