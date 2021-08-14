@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable react-hooks/rules-of-hooks */
 import { FormEvent, useCallback, useState } from "react";
 import { Link as LinkScroll } from "react-scroll";
@@ -20,6 +21,7 @@ interface IRepository {
   name: string;
   stargazers_count: number;
   forks_count: number;
+  html_url: string;
 }
 export function Home() {
   const [username, setUsername] = useState("");
@@ -89,7 +91,6 @@ export function Home() {
           <button type="submit">Pesquisar</button>
         </form>
         {inputError && <span className={styles.errorInput}>{inputError}</span>}{" "}
-        {/* MOSTRANDO ERRO NA TELA */}
         {user?.name && (
           <div className={styles.respositories}>
             <a key={user?.name} href={`/repositories/${user?.name}`}>
@@ -134,7 +135,11 @@ export function Home() {
               <span id="table" />
               {repositories.map((repository) => (
                 <>
-                  <a key={repository.id}>
+                  <a
+                    href={repository.html_url}
+                    key={repository.id}
+                    target="_blank"
+                  >
                     <div className={styles.repository}>
                       <strong>{repository.name}</strong>
                       <div>
