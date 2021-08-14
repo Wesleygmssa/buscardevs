@@ -1,46 +1,88 @@
-# Getting Started with Create React App
+<h3 align="center">
+ Desafio-compasso-uol - ReactJS
+</h3>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+   <img src="dev.gif" >
+</p>
 
-## Available Scripts
+### :computer: How To Run
 
-In the project directory, you can run:
+- Primeiro instale as dependencias:
 
-### `yarn start`
+```bash
+yarn
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### :computer: Scripts de inicialização:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Inicie a aplicação em modo desenvolvimento!
 
-### `yarn test`
+```bash
+yarn start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Criado um aplicativo OAuth:
 
-### `yarn build`
+- Para utilizar os Endpoints abaixo, você precisará estar autenticado, para isso - você irá utilizar a autenticação do GITHUB:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Utilizando a api do GITHUB
+- https://developer.github.com/v3/ consumindo os seguintes endpoints:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Endpoint user: https://api.github.com/users/NOME_USUARIO
+- Endpoint repos: https://api.github.com/users/NOME_USUARIO/repos
+- Endpoint starred: https://api.github.com/users/NOME_USUARIO/starred
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Documentação
 
-### `yarn eject`
+- Guia Autenticação: https://docs.github.com/pt/developers/apps/building-oauth-apps
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Criar um aplicativo OAuth: https://docs.github.com/pt/developers/apps/building-oauth-apps/creating-an-oauth-app
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Configuração de autenticação com GitHub
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+import NextAuth from "next-auth";
+import Providers from "next-auth/providers";
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+export default NextAuth({
+  // Configure one or more authentication providers
+  providers: [
+    Providers.GitHub({
+      clientId: "a07771680fab6455939d",
+      clientSecret: "318529d04addccf89edd0b018d65ddf03076b898",
+      scope: "read:user,repo",
+    }),
 
-## Learn More
+    // ...add more providers here
+  ],
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  // // A database is optional, but required to persist accounts in a database
+  // database: process.env.DATABASE_URL,
+});
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+
+### Modo de utilização
+
+```bash
+
+import { signIn, useSession, signOut } from "next-auth/client";
+const [session] = useSession();
+
+```
+
+- Abra [http://localhost:3000](http://localhost:3000) para vizualizar em seu navegador
+
+## 🤔 Tem alguma feature e quer contribuir?
+
+- Faça um fork desse repositório;
+- Cria uma branch com a sua feature: `git checkout -b minha-feature`;
+- Faça commit das suas alterações: `git commit -m 'feat: Minha nova feature'`;
+- Faça push para a sua branch: `git push origin minha-feature`.
+
+Depois que o merge da sua pull request for feito, você pode deletar a sua branch.
+
+---
+
+Make with ♥ by Wesley Guerra :wave:
