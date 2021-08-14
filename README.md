@@ -22,6 +22,8 @@ yarn
 yarn start
 ```
 
+- Abra [http://localhost:3000](http://localhost:3000) para vizualizar em seu navegador
+
 ### Criado um aplicativo OAuth:
 
 - Para utilizar os Endpoints abaixo, você precisará estar autenticado, para isso - você irá utilizar a autenticação do GITHUB:
@@ -40,8 +42,6 @@ yarn start
 - Criar um aplicativo OAuth: https://docs.github.com/pt/developers/apps/building-oauth-apps/creating-an-oauth-app
 
 ```
-
-- Abra [http://localhost:3000](http://localhost:3000) para vizualizar em seu navegador
 
 ## 🤔 Tem alguma feature e quer contribuir?
 
