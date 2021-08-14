@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { FormEvent, useCallback, useState } from "react";
 import { Link as LinkScroll } from "react-scroll";
-import api from "../services/api";
+import api from "../../services/api";
 import styles from "./dashboard.module.scss";
 
 interface IUser {
@@ -12,13 +12,6 @@ interface IUser {
   location: string;
   company: string;
   twitter_username: string;
-}
-
-interface DataProps {
-  id: number;
-  name: string;
-  stargazers_count: number;
-  forks_count: number;
 }
 
 interface IRepository {
