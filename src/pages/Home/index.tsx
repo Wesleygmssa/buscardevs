@@ -20,7 +20,7 @@ interface IRepository {
   stargazers_count: number;
   forks_count: number;
 }
-export default function dashboard() {
+export function Home() {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState<IUser>();
   const [repositories, setRepositories] = useState<IRepository[]>([]);
