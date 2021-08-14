@@ -1,4 +1,4 @@
-import { SignInButton } from "../SigninButton";
+// import { SignInButton } from "../SigninButton";
 import styles from "./styles.module.scss";
 
 export function Header() {
@@ -7,7 +7,7 @@ export function Header() {
       <div className={styles.headerContent}>
         <img src="https://nerdin.com.br/img/empresa/1363.png" alt="" />
 
-        <SignInButton />
+        {/* <SignInButton /> */}
       </div>
     </header>
   );
