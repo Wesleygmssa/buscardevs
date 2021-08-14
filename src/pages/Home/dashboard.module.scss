@@ -147,6 +147,14 @@
   }
 }
 
+.repo {
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateX(10px);
+  }
+}
+
 .repository {
   display: flex;
   justify-content: center;

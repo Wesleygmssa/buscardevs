@@ -139,6 +139,7 @@ export function Home() {
                     href={repository.html_url}
                     key={repository.id}
                     target="_blank"
+                    className={styles.repo}
                   >
                     <div className={styles.repository}>
                       <strong>{repository.name}</strong>
