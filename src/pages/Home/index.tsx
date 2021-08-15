@@ -43,7 +43,6 @@ export function Home() {
   // ARMAZENAMENTO USUÀRIOS LOCALSTORAGE
   useEffect(() => {
     localStorage.setItem("@GithubExplorer:user", JSON.stringify(user));
-    setUsername(user.login);
   }, [user]);
 
   /**
@@ -53,14 +52,17 @@ export function Home() {
    * @param {*} username  login do usuário
    * Endpoint: https://api.github.com/users/username/@value (repos) ou (starred)
    */
-  async function handleGetRepository(value: string) {
-    if (value) {
-      const reposResponse = await api.get<IRepository[]>(
-        `${username}/${value}`
-      );
-      setRepositories(reposResponse.data);
-    }
-  }
+  const handleGetRepository = useCallback(
+    async (value: string) => {
+      if (value) {
+        const reposResponse = await api.get<IRepository[]>(
+          `${user?.login}/${value}`
+        );
+        setRepositories(reposResponse.data);
+      }
+    },
+    [user?.login]
+  );
 
   /**
    *
@@ -85,6 +87,7 @@ export function Home() {
           setUser(profileResponse.data);
         }
         setInputError(""); //LIMPANDO A MENSAGEM DE ERRO.
+        setRepositories([]);
       } catch (error) {
         console.log(error);
         setInputError(" Erro na busca por esse usuário");
@@ -147,8 +150,12 @@ export function Home() {
             <span id="table" />
 
             <div>
-              {typeRepository === "repos" && <h2>Repositórios</h2>}
-              {typeRepository === "starred" && <h2>Mais Visitados</h2>}
+              {typeRepository === "repos" && repositories.length > 0 && (
+                <h2>Repositórios</h2>
+              )}
+              {typeRepository === "starred" && repositories.length > 0 && (
+                <h2>Mais Visitados</h2>
+              )}
               {repositories.map((repository) => (
                 <a
                   href={repository.html_url}
