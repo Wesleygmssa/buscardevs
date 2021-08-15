@@ -65,8 +65,8 @@ export function Home() {
   /**
    *
    * @function handleSubmit
-   * * @param {*} event bloqueando evento padrão do formulário.
-   *  Fazendo a primeira chamda api onde,
+   * * @param {*} event pegando os eventos padrões do formulário.
+   *  Fazendo a primeira chamada api onde,
    *  encontramos o usuário digitado @username
    *  Endpoint user: https://api.github.com/users/@username
    */
