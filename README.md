@@ -3,7 +3,7 @@
 </h3>
 
 <p align="center">
-   <img src="dev.gif" >
+   <img src="react_compasso.gif" >
 </p>
 
 ### :computer: How To Run
