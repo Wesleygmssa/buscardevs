@@ -44,8 +44,6 @@ export function Home() {
     setUsername(user.login);
   }, [user]);
 
-  console.log(user);
-
   /**
    *  Chamada endpoint de acordo o value
    * @function handleGetRepository
