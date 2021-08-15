@@ -30,6 +30,7 @@ export function Home() {
   const [typeRepository, setTypeRepository] = useState("");
 
   const [user, setUser] = useState<IUser>(() => {
+    // ARMAZENAMENTO USUÀRIOS LOCALSTORAGE
     const storagedRepositories = localStorage.getItem("@GithubExplorer:user");
 
     if (storagedRepositories) {
@@ -37,8 +38,9 @@ export function Home() {
     } else {
       return [];
     }
-  }); // ARMAZENAMENTO REPOSITORIOS
+  });
 
+  // ARMAZENAMENTO USUÀRIOS LOCALSTORAGE
   useEffect(() => {
     localStorage.setItem("@GithubExplorer:user", JSON.stringify(user));
     setUsername(user.login);
