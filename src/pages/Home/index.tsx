@@ -88,6 +88,7 @@ export function Home() {
         }
         setInputError(""); //LIMPANDO A MENSAGEM DE ERRO.
         setRepositories([]);
+        setUsername("");
       } catch (error) {
         console.log(error);
         setInputError(" Erro na busca por esse usuário");
