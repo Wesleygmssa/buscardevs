@@ -68,7 +68,7 @@ export function Home() {
         if (profileResponse) {
           setUser(profileResponse.data);
         }
-        setInputError(""); //LIMPANDO A MENSAGEM DE ERRO.
+        setInputError("");
       } catch (error) {
         console.log(error);
         setInputError(" Erro na busca por esse usuário");
@@ -86,7 +86,7 @@ export function Home() {
           <input
             placeholder="Pesquisar usuários"
             value={username}
-            onChange={(e) => setUsername(e.target.value)} // evento de mudança
+            onChange={(e) => setUsername(e.target.value)}
           />
           <button type="submit">Pesquisar</button>
         </form>

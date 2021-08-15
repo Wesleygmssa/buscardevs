@@ -1,46 +1,46 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-:root{
-    --white: #FFFFFF;
-    --gray-900: #121214;
+:root {
+  --white: #ffffff;
+  --gray-900: #121214;
 }
 
 //desktop
-@media(max-width:1080px){
-    html{
-        font-size: 93.75%;
-    }
-
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
 }
-
 
 //table mpbile
-@media(max-width:720px){
-    html{
-        font-size: 87.5%;
-    }
-    
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
 }
 
-body{
-    background: var(--gray-900);
-    color:var(--white);
-
+body {
+  background: var(--gray-900);
+  color: var(--white);
 }
 
-body, input, textarea, select, button{
-    font: 400 1rem "Roboto", sans-serinf;
+body,
+input,
+textarea,
+select,
+button {
+  font: 400 1rem "Roboto", sans-serinf;
 }
 
-button{
-    cursor: pointer;
+button {
+  cursor: pointer;
 }
 
-a{
-    color: inherit; // assumir a cor do elemento q esta por volta dele, elemento pai
-    text-decoration: none;
+a {
+  color: inherit; // assumir a cor do elemento q esta por volta dele, elemento pai
+  text-decoration: none;
 }
