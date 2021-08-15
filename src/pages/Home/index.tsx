@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable react-hooks/rules-of-hooks */
-import { FormEvent, useCallback, useState } from "react";
+import { FormEvent, useCallback, useEffect, useState } from "react";
 import { Link as LinkScroll } from "react-scroll";
 import { Header } from "../../components/Header";
 import api from "../../_services/api";
@@ -25,10 +25,26 @@ interface IRepository {
 }
 export function Home() {
   const [username, setUsername] = useState("");
-  const [user, setUser] = useState<IUser>();
   const [repositories, setRepositories] = useState<IRepository[]>([]);
   const [inputError, setInputError] = useState("");
   const [typeRepository, setTypeRepository] = useState("");
+
+  const [user, setUser] = useState<IUser>(() => {
+    const storagedRepositories = localStorage.getItem("@GithubExplorer:user");
+
+    if (storagedRepositories) {
+      return JSON.parse(storagedRepositories);
+    } else {
+      return [];
+    }
+  }); // ARMAZENAMENTO REPOSITORIOS
+
+  useEffect(() => {
+    localStorage.setItem("@GithubExplorer:user", JSON.stringify(user));
+    setUsername(user.login);
+  }, [user]);
+
+  console.log(user);
 
   /**
    *  Chamada endpoint de acordo o value
@@ -68,7 +84,7 @@ export function Home() {
         if (profileResponse) {
           setUser(profileResponse.data);
         }
-        setInputError("");
+        setInputError(""); //LIMPANDO A MENSAGEM DE ERRO.
       } catch (error) {
         console.log(error);
         setInputError(" Erro na busca por esse usuário");
@@ -86,7 +102,7 @@ export function Home() {
           <input
             placeholder="Pesquisar usuários"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)} // evento de mudança
           />
           <button type="submit">Pesquisar</button>
         </form>
@@ -134,22 +150,20 @@ export function Home() {
               {typeRepository === "repos" && <h2>Repositórios</h2>}
               {typeRepository === "starred" && <h2>Mais Visitados</h2>}
               {repositories.map((repository) => (
-                <>
-                  <a
-                    href={repository.html_url}
-                    key={repository.id}
-                    target="_blank"
-                    className={styles.repo}
-                  >
-                    <div className={styles.repository}>
-                      <strong>{repository.name}</strong>
-                      <div>
-                        <span>Starts:{repository.stargazers_count}</span>
-                        <span>Forks:{repository.forks_count}</span>
-                      </div>
+                <a
+                  href={repository.html_url}
+                  key={repository.id}
+                  target="_blank"
+                  className={styles.repo}
+                >
+                  <div className={styles.repository}>
+                    <strong>{repository.name}</strong>
+                    <div>
+                      <span>Starts:{repository.stargazers_count}</span>
+                      <span>Forks:{repository.forks_count}</span>
                     </div>
-                  </a>
-                </>
+                  </div>
+                </a>
               ))}
             </div>
           </div>
