@@ -3,7 +3,7 @@
 import { FormEvent, useCallback, useState } from "react";
 import { Link as LinkScroll } from "react-scroll";
 import { Header } from "../../components/Header";
-import api from "../../services/api";
+import api from "../../_services/api";
 import styles from "./dashboard.module.scss";
 
 interface IUser {
