@@ -129,10 +129,10 @@ export function Home() {
               </LinkScroll>
             </div>
             <span id="table" />
+
             <div>
               {typeRepository === "repos" && <h2>Repositórios</h2>}
               {typeRepository === "starred" && <h2>Mais Visitados</h2>}
-
               {repositories.map((repository) => (
                 <>
                   <a
