@@ -24,6 +24,10 @@ yarn start
 
 - Abra [http://localhost:3000](http://localhost:3000) para vizualizar em seu navegador
 
+### Deploy na vercel
+
+- Link para de visualização [https://teste-3-l3bi5umf6-ignews-teste.vercel.app/](https://teste-3-l3bi5umf6-ignews-teste.vercel.app/) para vizualizar em seu navegador
+
 ### Criado um aplicativo OAuth:
 
 - Para utilizar os Endpoints abaixo, você precisará estar autenticado, para isso - você irá utilizar a autenticação do GITHUB:
