@@ -77,7 +77,7 @@ export function Home() {
       event.preventDefault();
 
       if (!username) {
-        setInputError("Digite o autor/nome do repositório ");
+        setInputError("Digite o autor");
         return;
       }
 
