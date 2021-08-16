@@ -26,7 +26,7 @@ yarn start
 
 ### Deploy na vercel
 
-- Link para visualização [https://teste-3-l3bi5umf6-ignews-teste.vercel.app/](https://teste-3-l3bi5umf6-ignews-teste.vercel.app/) para vizualizar em seu navegador
+- Link para visualização [https://teste-3-l3bi5umf6-ignews-teste.vercel.app/](https://teste-3-l3bi5umf6-ignews-teste.vercel.app/).
 
 ### Criado um aplicativo OAuth:
 
