@@ -1,5 +1,5 @@
 <h3 align="center">
- Desafio-compasso-uol - ReactJS
+  ReactJS
 </h3>
 
 <p align="center">
