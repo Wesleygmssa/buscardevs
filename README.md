@@ -2,9 +2,9 @@
   ReactJS
 </h3>
 
-<p align="center">
+<!-- <p align="center">
    <img src="react_compasso.gif" >
-</p>
+</p> -->
 
 ### :computer: How To Run
 
